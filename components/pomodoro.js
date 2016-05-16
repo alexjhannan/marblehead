@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  Vibration,
   View
 } from 'react-native';
 
@@ -26,8 +27,6 @@ class Pomodoro extends Component {
 
     let counter = t1 - t0;
 
-    console.log(counter);
-
     this.setState({ counter });
   }
 
@@ -43,13 +42,24 @@ class Pomodoro extends Component {
     }
   }
 
+  alarm() {
+    Vibration.vibrate([0, 300, 100, 300, 100, 300]);
+  }
+
   formatTimer() {
+    // calculates remaining time, and fires off the alarm if the timer expires
     let timerDuration = this.props.timerDuration * 60 * 1000;
     let timeRemaining = Math.floor((timerDuration - this.state.counter)/1000);
+    if (timeRemaining < 0) {
+      this.alarm();
+      clearInterval(this.timer);
+      this.timer = null;
+      return 'Ding!';
+    }
     let minutesRemaining = Math.floor(timeRemaining/60);
-    if (minutesRemaining < 10) { minutesRemaining = '0' + minutesRemaining }
+    if (minutesRemaining < 10) { minutesRemaining = '0' + minutesRemaining; }
     let secondsRemaining = timeRemaining%60;
-    if (secondsRemaining === 0) { secondsRemaining += '0';}
+    if (secondsRemaining < 10) { secondsRemaining = '0' + secondsRemaining;}
 
     let formattedTimer;
 
