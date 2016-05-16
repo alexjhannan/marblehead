@@ -12,7 +12,7 @@ class Marblehead extends Component {
   render() {
     return (
       <View>
-        <Pomodoro />
+        <Pomodoro timerDuration={.1} />
       </View>
     );
   }
