@@ -8,6 +8,7 @@
   "dependencies": {
     "0": "0.0.0",
     "buffer": "4.6.0",
+    "firebase": "^2.4.2",
     "react": "0.14.8",
     "react-native": "0.25.1",
     "react-native-router-flux": "3.22.23"

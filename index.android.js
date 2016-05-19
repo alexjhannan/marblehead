@@ -2,8 +2,9 @@ import React from 'react';
 import { AppRegistry, StyleSheet } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
 
-import Home from './components/home.js';
-import Pomodoro from './components/pomodoro.js';
+import Home from './components/home';
+import Pomodoro from './components/pomodoro';
+import GoalList from './components/goalList';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
       <Scene key="root" navigationBarStyle={styles.navBar} titleStyle={styles.navBarTitle} barButtonTextStyle={styles.barButtonTextStyle} barButtonIconStyle={styles.barButtonIconStyle}>
         <Scene key="home" component={Home} title="Home" initial={true}/>
         <Scene key="pomodoro" component={Pomodoro} timerDuration={.1} title="Pomodoro"/>
+        <Scene key="goalList" component={GoalList} title="GoalList"/>
       </Scene>
     </Router>
   }
@@ -18,7 +20,7 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   navBar: {
-    backgroundColor:'#224422',
+    backgroundColor:'#224422'
   },
   navBarTitle:{
       color:'#DDEEDD'

@@ -50,6 +50,13 @@ class Home extends React.Component {
           </TouchableHighlight>
         </View>
 
+        <TouchableHighlight
+          onPress={Actions.goalList}
+          style={styles.itemButton}
+          underlayColor="#ffbbbb">
+          <Text style={styles.itemButtonText}>Goal List</Text>
+        </TouchableHighlight>
+
       </View>
     );
   }

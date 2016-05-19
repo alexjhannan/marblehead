@@ -91,7 +91,8 @@ class Pomodoro extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 50
   },
   title: {
     fontSize: 36,
